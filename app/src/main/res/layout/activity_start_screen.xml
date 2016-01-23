@@ -7,10 +7,28 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.josiah.cash_you.StartScreen">
+    tools:context="com.example.josiah.cash_you.StartScreen"
+    android:focusableInTouchMode="false">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Cash-U"
+        android:textSize="50"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Money Doesn&apos;t grow on trees... But Cashews do"
+        android:textSize = "30"
+        android:id="@+id/button"
+        android:layout_marginBottom="182dp"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
+
