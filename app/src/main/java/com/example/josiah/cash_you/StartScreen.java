@@ -4,6 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences.Editor;
+import android.content.SharedPreferences;
+import android.widget.EditText;
+
 
 public class StartScreen extends ActionBarActivity {
 
@@ -11,6 +18,17 @@ public class StartScreen extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
+
+        SharedPreferences pref = getSharedPreferences("ActivityPREF", Context.MODE_PRIVATE);
+        if(pref.getBoolean("activity_executed", false)){
+            Intent intent = new Intent(this, DisplayHomeScreen.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Editor ed = pref.edit();
+            ed.putBoolean("activity_executed", true);
+            ed.commit();
+        }
     }
 
     @Override
@@ -33,5 +51,9 @@ public class StartScreen extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void goToNextScreen(View view) {
+        Intent intent = new Intent(this, NewBudget.class);
+        startActivity(intent);
     }
 }
